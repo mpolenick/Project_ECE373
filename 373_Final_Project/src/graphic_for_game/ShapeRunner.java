@@ -70,6 +70,10 @@ public class ShapeRunner extends Canvas implements Runnable {
 		{
 			System.out.println("right is pressed");
 		}
+		if(KeyInput.isDown(KeyEvent.VK_ESCAPE))		//closes the program if the esc is pressed
+		{
+			this.INSTANCE.stop();
+		}
 		stateManager.tick();
 	}
 	
