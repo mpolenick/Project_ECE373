@@ -17,6 +17,7 @@ public abstract class Entity {
 		this.x = x;
 		this.y = y;
 		this.state = state;
+		System.out.println("Adding entity :"+ sprite.toString());
 		state.addEntity(this);
 	}
 	

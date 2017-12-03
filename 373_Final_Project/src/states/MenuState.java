@@ -1,4 +1,4 @@
-package utilities;
+package states;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -11,8 +11,7 @@ import graphic_for_game.ShapeRunner;
 import input.KeyInput;
 import input.MouseInput;
 import rendering.textures.ui.Button;
-import states.State;
-import states.StateManager;
+import utilities.Fonts;
 
 public class MenuState  implements State
 {
@@ -67,18 +66,13 @@ public class MenuState  implements State
 		{
 			select(stateManager);
 		}
-		
-		if(clicked)
-		{
-			select(stateManager);
-		}
 	}
 	
 	private void select(StateManager stateManager) {
 		switch(currentSel) {
 		case 0:
 			System.out.println("play");
-			stateManager.setState("level1");
+			stateManager.setState("game");
 			break;
 		case 1:
 			System.out.println("Options");

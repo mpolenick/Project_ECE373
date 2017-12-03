@@ -30,7 +30,10 @@ public class Texture {
 		{
 			try {
 				//image = ImageIO.read(new File("./resources/textures/"+ fileName + ".png"));
-				manager = new TextureManager(ImageIO.read(new File("./resources/textures/"+ fileName + ".png")));
+				System.out.println("Working Directory = " +
+			              System.getProperty("user.dir"));
+				System.err.println("Trying to open ./src/images/"+ fileName + ".png");
+				manager = new TextureManager(ImageIO.read(new File("./src/images/"+ fileName + ".png")));
 				textMap.put(fileName,manager);
 			}
 			catch(IOException e)

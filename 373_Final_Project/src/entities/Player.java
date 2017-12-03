@@ -14,6 +14,7 @@ public class Player extends Mob {
 	
 	@Override
 	public void tick() {
+		
 		if(KeyInput.isDown(KeyEvent.VK_W)) dy = -2;
 		if(KeyInput.isDown(KeyEvent.VK_S)) dy = 2;
 		if(KeyInput.isDown(KeyEvent.VK_A)) dx = -2;

@@ -1,10 +1,12 @@
 package states;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
 import entities.Entity;
 import entities.Player;
+import graphic_for_game.ShapeRunner;
 import textures.Sprite;
 
 public class GameState implements State{
@@ -14,7 +16,7 @@ public class GameState implements State{
 	@Override
 	public void init() {
 		entities = new ArrayList<Entity>();
-		new Player(new Sprite("TBD"), 100, 100, this);
+		new Player(new Sprite("octagonred"), 100, 100, this);
 	}
 
 	@Override
@@ -22,14 +24,18 @@ public class GameState implements State{
 
 	@Override
 	public void tick(StateManager stateManager) {
-		for (Entity e : entities)
+		for (Entity e : entities) {
 			e.tick();
+		}
 	}
 
 	@Override
 	public void render(Graphics g) {
-		for (Entity e : entities)
+		g.setColor(Color.GRAY);
+		g.fillRect(0, 0, ShapeRunner.WIDTH, ShapeRunner.HEIGHT);
+		for (Entity e : entities) {
 			e.render(g);
+		}
 	}
 
 	@Override
@@ -39,7 +45,7 @@ public class GameState implements State{
 
 	@Override
 	public String getName() {
-		return "Level1";
+		return "game";
 	}
 
 	public void addEntity(Entity entity) {

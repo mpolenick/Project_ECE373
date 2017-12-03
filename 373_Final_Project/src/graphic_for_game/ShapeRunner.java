@@ -11,11 +11,12 @@ import javax.swing.JFrame;
 
 import input.KeyInput;
 import input.MouseInput;
+import states.GameState;
+import states.MenuState;
 import states.StateManager;
 import textures.Sprite;
 import textures.SpriteSheet;
 import textures.Texture;
-import utilities.MenuState;
 
 public class ShapeRunner extends Canvas implements Runnable {
 	public static final String TITLE = "Shape Runner";
@@ -39,6 +40,7 @@ public class ShapeRunner extends Canvas implements Runnable {
 		//menu = new Menu();
 		stateManager = new StateManager();
 		stateManager.addState(new MenuState());
+		stateManager.addState(new GameState());
 		//sheet = new SpriteSheet(new Texture("test_sheet"),64);
 		//sprite = new Sprite(sheet,1,3);
 		addKeyListener(new KeyInput());
@@ -61,7 +63,7 @@ public class ShapeRunner extends Canvas implements Runnable {
 		}
 		if(MouseInput.isDown(MouseEvent.BUTTON1))
 		{
-			System.out.println("left is pressed");
+			//System.out.println("left is pressed");
 			
 		}
 		if(MouseInput.wasPressed(MouseEvent.BUTTON3))
