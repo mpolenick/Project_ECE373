@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import entities.Entity;
 import entities.Player;
+import textures.Sprite;
 
 public class GameState implements State{
 	

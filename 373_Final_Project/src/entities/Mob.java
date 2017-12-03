@@ -1,6 +1,7 @@
 package entities;
 
 import states.GameState;
+import textures.Sprite;
 
 public abstract class Mob extends Entity {
 	

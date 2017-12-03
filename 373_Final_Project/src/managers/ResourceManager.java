@@ -1,4 +1,4 @@
-package utilities.managers;
+package managers;
 
 public abstract class ResourceManager 
 {

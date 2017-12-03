@@ -1,7 +1,10 @@
+package world;
 
 import java.awt.Graphics2D;
 import java.util.HashMap;
 import java.util.Map;
+
+import textures.Texture;
 
 public class Tile {
 

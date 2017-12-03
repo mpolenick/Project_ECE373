@@ -3,6 +3,7 @@ package entities;
 import java.awt.Graphics;
 
 import states.GameState;
+import textures.Sprite;
 
 public abstract class Entity {
 	

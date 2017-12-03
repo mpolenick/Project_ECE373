@@ -2,7 +2,9 @@ package entities;
 
 import java.awt.event.KeyEvent;
 
+import input.KeyInput;
 import states.GameState;
+import textures.Sprite;
 
 public class Player extends Mob {
 

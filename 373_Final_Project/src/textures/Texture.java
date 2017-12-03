@@ -9,7 +9,7 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 
-import utilities.managers.TextureManager;
+import managers.TextureManager;
 
 public class Texture {
 
@@ -39,6 +39,9 @@ public class Texture {
 			}
 		}
 		
+	}
+	public Texture(Texture terrain, int i, int j, int k) {
+		// TODO Auto-generated constructor stub
 	}
 	@Override
 	protected void finalize() throws Throwable{

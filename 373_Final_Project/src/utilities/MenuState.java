@@ -11,13 +11,16 @@ import graphic_for_game.ShapeRunner;
 import input.KeyInput;
 import input.MouseInput;
 import rendering.textures.ui.Button;
+import states.State;
+import states.StateManager;
 
-public class Menu 
+public class MenuState  implements State
 {
-	private final Button[] options;
+	private Button[] options;
 	private int currentSel; //either 0,1,2
 	
-	public Menu()
+	@Override
+	public void init()
 	{
 		options = new Button[3];
 		options[0] = new Button("Play", 200 + 0 * 80,new Font("Arial",Font.PLAIN,32),new Font("Arial",Font.BOLD,48),
@@ -28,7 +31,11 @@ public class Menu
 				Color.GREEN,Color.WHITE);
 	}
 	
-	public void tick() 
+	@Override
+	public void enter() {}
+	
+	@Override
+	public void tick(StateManager stateManager) 
 	{
 		boolean clicked = false;		
 		if(KeyInput.wasPressed(KeyEvent.VK_UP) || KeyInput.wasPressed(KeyEvent.VK_W))
@@ -58,19 +65,20 @@ public class Menu
 		}
 		if(clicked || KeyInput.wasPressed(KeyEvent.VK_ENTER))
 		{
-			select();
+			select(stateManager);
 		}
 		
 		if(clicked)
 		{
-			select();
+			select(stateManager);
 		}
 	}
 	
-	private void select() {
+	private void select(StateManager stateManager) {
 		switch(currentSel) {
 		case 0:
 			System.out.println("play");
+			stateManager.setState("level1");
 			break;
 		case 1:
 			System.out.println("Options");
@@ -101,6 +109,13 @@ public class Menu
 			}
 			options[i].render(g);
 		}
+	}
+	@Override
+	public void exit() {}
+	
+	@Override
+	public String getName() {
+		return "menu";
 	}
 	
 }

@@ -12,6 +12,9 @@ public class Sprite {
 		this.image = spritesheet.getTexture().getImage().getSubimage((x * spritesheet.getWidth()) - spritesheet.getWidth(),
 				(y * spritesheet.getHeight()) - spritesheet.getHeight(), spritesheet.getWidth(), spritesheet.getHeight());
 	}
+	public Sprite(String string) {
+		// TODO Auto-generated constructor stub
+	}
 	public void render(Graphics g,double x,double y)
 	{
 		g.drawImage(image,(int)x,(int)y,null);
