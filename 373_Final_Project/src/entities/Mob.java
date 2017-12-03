@@ -2,6 +2,7 @@ package entities;
 
 import states.GameState;
 import textures.Sprite;
+import world.Tile;
 
 public abstract class Mob extends Entity {
 	
@@ -24,9 +25,40 @@ public abstract class Mob extends Entity {
 	}
 	
 	public void move() {
-		x += dx;
-		y += dy;
+		if(!hasHorizontalCollision()) x += dx;
+		if(!hasVerticalCollision()) y += dy;
 	}
+	
+	protected boolean hasVerticalCollision() {
+		for(int i =0; i < state.getTiles().size();i++) {
+			Tile t = state.getTiles().get(i);
+			if(getBounds().intersects(t.getTop()) && (dy > 0)) {
+				dy = 0;
+				return true;
+			}
+			if(getBounds().intersects(t.getBottom()) && dy < 0) {
+				dy = 0;
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	protected boolean hasHorizontalCollision() {
+		for(int i =0; i < state.getTiles().size();i++) {
+			Tile t = state.getTiles().get(i);
+			if(getBounds().intersects(t.getRight()) && (dx < 0)) {
+				dx = 0;
+				return true;
+			}
+			if(getBounds().intersects(t.getLeft()) && dx > 0) {
+				dx = 0;
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	
 	protected void fall() {
 		if (falling) {
@@ -36,6 +68,7 @@ public abstract class Mob extends Entity {
 			}
 		}
 	}
+	
 	
 	protected void jump (double jumpHeight) {
 		//temporarily set can jump to true until collisions is working

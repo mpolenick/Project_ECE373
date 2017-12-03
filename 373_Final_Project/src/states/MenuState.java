@@ -3,11 +3,12 @@ package states;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import graphic_for_game.ShapeRunner;
+import graphic_for_game.Game;
 import input.KeyInput;
 import input.MouseInput;
 import rendering.textures.ui.Button;
@@ -79,16 +80,16 @@ public class MenuState  implements State
 			break;
 		case 2:
 			System.out.println("Exit");
-			ShapeRunner.INSTANCE.stop();
+			Game.INSTANCE.stop();
 			break;
 		}
 	}
 	
-	public void render(Graphics g)
+	public void render(Graphics2D g)
 	{
 		g.setColor(Color.GRAY);
-		g.fillRect(0, 0, ShapeRunner.WIDTH, ShapeRunner.HEIGHT);
-		Fonts.drawString(g,new Font("Arial",Font.BOLD,72) ,Color.BLUE, ShapeRunner.TITLE,80);
+		g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
+		Fonts.drawString(g,new Font("Arial",Font.BOLD,72) ,Color.BLUE, Game.TITLE,80);
 
 		for(int i = 0;i < options.length;i++)
 		{

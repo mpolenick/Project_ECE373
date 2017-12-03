@@ -17,6 +17,12 @@ public class Sprite {
 		Texture tex = new Texture(texName);
 		image = tex.getImage();
      }
+	public int getWidth() {
+		return image.getWidth();
+	}
+	public int getHeight() {
+		return image.getHeight();
+	}
 	public void render(Graphics g,double x,double y)
 	{
 		g.drawImage(image,(int)x,(int)y,null);

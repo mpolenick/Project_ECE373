@@ -6,7 +6,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-import graphic_for_game.ShapeRunner;
+import graphic_for_game.Game;
 import utilities.Fonts;
 
 public class Button extends Rectangle{
@@ -41,7 +41,7 @@ public class Button extends Rectangle{
 			Fonts.drawString(g, font, color, text, textY);
 		}
 		FontMetrics fm = g.getFontMetrics();
-		this.x = (ShapeRunner.WIDTH - fm.stringWidth(text))/2;
+		this.x = (Game.WIDTH - fm.stringWidth(text))/2;
 		this.y = textY -fm.getHeight();
 		this.width = fm.stringWidth(text);
 		this.height = fm.getHeight();

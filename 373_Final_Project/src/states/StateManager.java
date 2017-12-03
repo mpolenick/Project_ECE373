@@ -1,6 +1,7 @@
 package states;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +37,7 @@ public class StateManager {
 	public void tick() {
 		curState.tick(this);
 	}
-	public void render(Graphics g) {
+	public void render(Graphics2D g) {
 		curState.render(g);
 	}
 }
