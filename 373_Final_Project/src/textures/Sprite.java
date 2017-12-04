@@ -1,6 +1,7 @@
 package textures;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 public class Sprite {
@@ -24,6 +25,10 @@ public class Sprite {
 		return image.getHeight();
 	}
 	public void render(Graphics g,double x,double y)
+	{
+		g.drawImage(image,(int)x,(int)y,null);
+	}
+	public void render(Graphics2D g,double x,double y)
 	{
 		g.drawImage(image,(int)x,(int)y,null);
 	}

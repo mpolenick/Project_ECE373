@@ -32,10 +32,13 @@ public abstract class Mob extends Entity {
 	protected boolean hasVerticalCollision() {
 		for(int i =0; i < state.getTiles().size();i++) {
 			Tile t = state.getTiles().get(i);
-			if(getBounds().intersects(t.getTop()) && (dy > 0)) {
+			if(getBottom().intersects(t.getTop()) && (dy > 0)) {
+				canJump = true;
+				falling = false;
 				dy = 0;
 				return true;
 			}
+			else falling = true;	
 			if(getBounds().intersects(t.getBottom()) && dy < 0) {
 				dy = 0;
 				return true;
@@ -71,8 +74,6 @@ public abstract class Mob extends Entity {
 	
 	
 	protected void jump (double jumpHeight) {
-		//temporarily set can jump to true until collisions is working
-		canJump = true;
 		if (canJump) {
 			dy -= jumpHeight;
 			canJump = false;

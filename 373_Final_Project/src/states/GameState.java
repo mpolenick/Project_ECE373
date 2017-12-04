@@ -24,10 +24,19 @@ public class GameState implements State{
 		new Player(new Sprite("octagonred"), 100, 100, this);
 		float x = 0;
 		float y = Game.HEIGHT - 64;
-	//	for (int i =0; i < 10;i++) {
-	//		tiles.add(new Tile(x,y,new Sprite(new SpriteSheet(new Texture("terrain"),64),1,1)));
-	//		x+=70;
-	//	}
+		
+		
+		tiles.add(new Tile(100, 480 - 64 - 64, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		tiles.add(new Tile(220, 480-(64*3), new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		tiles.add(new Tile(340, 480-(64*4), new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		//tiles.add(new Tile(400, 50, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		//tiles.add(new Tile(300, 300, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		//tiles.add(new Tile(640 - 64, 300, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		 
+		for (int i =0; i < 10;i++) {
+			tiles.add(new Tile(x,y,new Sprite(new SpriteSheet(new Texture("terrain"),64),1,1)));
+			x+=70;
+		}
 	}
 
 	@Override
@@ -49,9 +58,9 @@ public class GameState implements State{
 		for (Entity e : entities) {
 			e.render(g);
 		}
-	//	for (Tile t : tiles) {
-	//		t.render(g);
-	//	}
+		for (Tile t : tiles) {
+			t.render(g);
+		}
 	}
 
 	@Override

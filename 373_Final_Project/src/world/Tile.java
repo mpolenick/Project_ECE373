@@ -52,8 +52,8 @@ public class Tile {
 		this.solid = true;
 	}
 
-	public void render(Graphics2D g, int x, int y) {
-        sprite.render(g, x, y);
+	public void render(Graphics2D g) {
+        sprite1.render(g, x, y);
         //debug stuff?
         g.setColor(Color.RED);
         g.draw(getTop());
@@ -65,6 +65,7 @@ public class Tile {
         g.draw(getRight());
         
     }
+
 
     public boolean isSolid() {
         return solid;

@@ -43,15 +43,15 @@ public abstract class Entity {
     }
     
     public Rectangle getTop() {
-    	return new Rectangle((int) x + 6,(int) y,sprite.getWidth() - 6,4);
+    	return new Rectangle((int) x,(int) y,sprite.getWidth() - 6,4);
     }
     public Rectangle getBottom() {
-    	return new Rectangle((int) x + 6,(int) y + sprite.getHeight()-4,sprite.getWidth() - 6,4);
+    	return new Rectangle((int) x ,(int) y + sprite.getHeight()-4,sprite.getWidth()-6,4);
     }
     public Rectangle getRight() {
-    	return new Rectangle((int) x + sprite.getWidth() - 4,(int) y +6,4,sprite.getHeight() - 6);
+    	return new Rectangle((int) x + sprite.getWidth() - 4,(int) y +6,4,sprite.getHeight() - 10);
     }
     public Rectangle getLeft() {
-    	return new Rectangle((int) x - 6 ,(int) y  +6,4,sprite.getHeight() - 6);
+    	return new Rectangle((int) x - 4 ,(int) y  +6,4,sprite.getHeight() - 10);
     }
 }

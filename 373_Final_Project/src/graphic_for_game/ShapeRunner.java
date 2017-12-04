@@ -2,7 +2,7 @@ package graphic_for_game;
 
 import javax.swing.JFrame;
 
-public class Shaperunner {
+public class ShapeRunner {
 	public static void main(String[] args) 
 	{
 		Game game = new Game();

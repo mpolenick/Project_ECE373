@@ -19,7 +19,7 @@ public class Player extends Mob {
 		if(KeyInput.isDown(KeyEvent.VK_A)) dx = -2;
 		if(KeyInput.isDown(KeyEvent.VK_D)) dx = 2;
 		
-		if(KeyInput.wasReleased(KeyEvent.VK_W) || KeyInput.wasReleased(KeyEvent.VK_S)) dy = 0;
+		//if(KeyInput.wasReleased(KeyEvent.VK_W) || KeyInput.wasReleased(KeyEvent.VK_S)) dy = 0;
 		if(KeyInput.wasReleased(KeyEvent.VK_A) || KeyInput.wasReleased(KeyEvent.VK_D)) dx = 0;
 		super.tick();
 	}
