@@ -1,4 +1,4 @@
-package rendering.textures.ui;
+package ui;
 
 import java.awt.Color;
 import java.awt.Font;
