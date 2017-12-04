@@ -42,6 +42,7 @@ public class Game extends Canvas implements Runnable {
 		stateManager = new StateManager();
 		stateManager.addState(new MenuState());
 		stateManager.addState(new GameState());
+		stateManager.addState(new options());
 		//sheet = new SpriteSheet(new Texture("test_sheet"),64);
 		//sprite = new Sprite(sheet,1,3);
 		addKeyListener(new KeyInput());
