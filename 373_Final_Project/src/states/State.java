@@ -10,4 +10,5 @@ public interface State {
 	public void render(Graphics2D g);
 	public void exit();		//exit state
 	public String getName();
+//	public boolean nextState();
 }

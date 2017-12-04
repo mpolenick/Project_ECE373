@@ -40,4 +40,7 @@ public class StateManager {
 	public void render(Graphics2D g) {
 		curState.render(g);
 	}
+	public State getState() {
+		return curState;
+	}
 }

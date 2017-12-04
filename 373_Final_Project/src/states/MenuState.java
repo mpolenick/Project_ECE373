@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
@@ -75,7 +76,7 @@ public class MenuState  implements State
 		switch(currentSel) {
 		case 0:
 			System.out.println("play");
-			stateManager.setState("game");
+			stateManager.setState("game1");
 			break;
 		case 1:
 			System.out.println("Shop");
@@ -93,7 +94,7 @@ public class MenuState  implements State
 	}
 	
 	public void render(Graphics2D g)
-	{
+	{	g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
 		Fonts.drawString(g,new Font("Arial",Font.BOLD,72) ,Color.BLUE, Game.TITLE,80);

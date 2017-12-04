@@ -43,7 +43,7 @@ public class Tile {
     	return new Rectangle((int) x + sprite1.getWidth() - 4,(int) y +6,4,sprite1.getHeight() - 6);
     }
     public Rectangle getLeft() {
-    	return new Rectangle((int) x - 6 ,(int) y  +6,4,sprite1.getHeight() - 6);
+    	return new Rectangle((int) x - 1 ,(int) y  +6,4,sprite1.getHeight() - 6);
     }
     public Tile(float x, float y, Sprite sprite2) {
 		this.x = x;
@@ -55,6 +55,7 @@ public class Tile {
 	public void render(Graphics2D g) {
         sprite1.render(g, x, y);
         //debug stuff?
+        /*
         g.setColor(Color.RED);
         g.draw(getTop());
         g.setColor(Color.BLUE);
@@ -63,7 +64,7 @@ public class Tile {
         g.draw(getLeft());
         g.setColor(Color.ORANGE);
         g.draw(getRight());
-        
+        */
     }
 
 

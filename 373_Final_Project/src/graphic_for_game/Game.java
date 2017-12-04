@@ -13,6 +13,10 @@ import javax.swing.JFrame;
 import input.KeyInput;
 import input.MouseInput;
 import states.GameState;
+import states.GameState1;
+import states.GameState2;
+import states.GameState3;
+import states.GameState4;
 import states.MenuState;
 import states.ScoreState;
 import states.ShopState;
@@ -24,8 +28,8 @@ import textures.Texture;
 
 public class Game extends Canvas implements Runnable {
 	public static final String TITLE = "Shape Runner";
-	public static final int WIDTH = 640;
-	public static final int HEIGHT = WIDTH /4 *3;
+	public static final int WIDTH = 1280;
+	public static final int HEIGHT = WIDTH /16 *9;
 	
 	private boolean running;
 	
@@ -44,10 +48,16 @@ public class Game extends Canvas implements Runnable {
 		//menu = new Menu();
 		stateManager = new StateManager();
 		stateManager.addState(new MenuState());
-		stateManager.addState(new GameState());
 		stateManager.addState(new options());
+		stateManager.addState(new GameState1());
+		stateManager.addState(new GameState2());
+		stateManager.addState(new GameState3());
+		stateManager.addState(new GameState4());
 		stateManager.addState(new ScoreState());
 		stateManager.addState(new ShopState());
+		//stateManager.addState(new GameState5());
+		//stateManager.addState(new GameState6());
+		//stateManager.addState(new options());
 		//sheet = new SpriteSheet(new Texture("test_sheet"),64);
 		//sprite = new Sprite(sheet,1,3);
 		addKeyListener(new KeyInput());
@@ -78,8 +88,9 @@ public class Game extends Canvas implements Runnable {
 			System.out.println("right is pressed");
 		}
 		if(KeyInput.isDown(KeyEvent.VK_ESCAPE))		//closes the program if the esc is pressed
-		{
-			this.INSTANCE.stop();
+		{	
+			stateManager.setState("menu");
+			//this.INSTANCE.stop();
 		}
 		stateManager.tick();
 	}
@@ -98,8 +109,8 @@ public class Game extends Canvas implements Runnable {
 		g2d.translate(-6,-28);//hardcoded
 		//////////////////////////////////////////
 		//background
-		g2d.setColor(Color.red);
-		g2d.fillRect(0, 0, WIDTH, HEIGHT);
+		//g2d.setColor(Color.red);
+		//g2d.fillRect(0, 0, WIDTH, HEIGHT);
 		//sprite.render(g, 350, 400);
 		stateManager.render(g2d);
 		
@@ -140,6 +151,9 @@ public class Game extends Canvas implements Runnable {
 			long now = System.nanoTime();
 			unprocessed = unprocessed + (now - lastTime)/nsPerTick;
 			lastTime = now;
+		//	if(stateManager.getState().nextState()) {
+			//	stateManager.nextState();
+		//	}
 			
 			if(unprocessed >= 1.0)
 			{

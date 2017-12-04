@@ -17,14 +17,31 @@ import textures.SpriteSheet;
 import textures.Texture;
 import world.Tile;
 
-public abstract class GameState implements State{
+public class GameState2 extends GameState implements State{
 	
 	private ArrayList<Entity> entities;
 	private ArrayList<Tile> tiles;
-	private String filename;
+	private String filename = "background2";
 	@Override
 	public void init() {
+		tiles = new ArrayList<Tile>();
+		entities = new ArrayList<Entity>();
+		new Player(new Sprite("octagonred"), 100, 100, this);
+		float x = 0;
+		float y = Game.HEIGHT - 64;
 		
+		
+		tiles.add(new Tile(100, 480 - 64 - 64, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		tiles.add(new Tile(220, 480-(64*3), new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		tiles.add(new Tile(340, 480-(64*4), new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		//tiles.add(new Tile(400, 50, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		//tiles.add(new Tile(300, 300, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		//tiles.add(new Tile(640 - 64, 300, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		 
+		for (int i =0; i < 20;i++) {
+			tiles.add(new Tile(x,y,new Sprite(new SpriteSheet(new Texture("terrain"),64),1,1)));
+			x+=64;
+		}
 	}
 
 	@Override
@@ -39,8 +56,7 @@ public abstract class GameState implements State{
 	public ArrayList<Tile> getTiles(){
 		return tiles;
 	}
-	@Override
-		public void render(Graphics2D g) {
+	public void render(Graphics2D g) {
 		
 		try {
 		g.drawImage(ImageIO.read(new File("./src/images/"+filename +".png")), 0, 0, 1280, 720,null);// ,0, 0, 1280, 720);
@@ -64,7 +80,7 @@ public abstract class GameState implements State{
 
 	@Override
 	public String getName() {
-		return "game";
+		return "game2";
 	}
 
 	public void addEntity(Entity entity) {

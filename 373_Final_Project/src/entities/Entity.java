@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.RenderingHints;
 
 import states.GameState;
 import textures.Sprite;
@@ -28,6 +29,8 @@ public abstract class Entity {
 	
 	public void render(Graphics2D g) {
 		sprite.render(g,x,y);
+		//g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		/*
 		g.setColor(Color.RED);
         g.draw(getTop());
         g.setColor(Color.BLUE);
@@ -36,6 +39,7 @@ public abstract class Entity {
         g.draw(getLeft());
         g.setColor(Color.ORANGE);
         g.draw(getRight());
+        */
 	}
 	
 	public Rectangle getBounds() {
