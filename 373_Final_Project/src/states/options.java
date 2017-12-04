@@ -2,7 +2,6 @@ package states;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
@@ -14,8 +13,8 @@ import input.MouseInput;
 import rendering.textures.ui.Button;
 import utilities.Fonts;
 
-public class MenuState  implements State
-{
+public class options implements State {
+
 	private Button[] options;
 	private int currentSel; //either 0,1,2
 	
@@ -23,11 +22,11 @@ public class MenuState  implements State
 	public void init()
 	{
 		options = new Button[3];
-		options[0] = new Button("Play", 200 + 0 * 80,new Font("Arial",Font.PLAIN,32),new Font("Arial",Font.BOLD,48),
+		options[0] = new Button("Resolution", 200 + 0 * 80,new Font("Arial",Font.PLAIN,32),new Font("Arial",Font.BOLD,48),
 				Color.GREEN,Color.WHITE);
-		options[1] = new Button("Options", 200 + 1 * 80,new Font("Arial",Font.PLAIN,32),new Font("Arial",Font.BOLD,48),
+		options[1] = new Button("Audio", 200 + 1 * 80,new Font("Arial",Font.PLAIN,32),new Font("Arial",Font.BOLD,48),
 				Color.GREEN,Color.WHITE);
-		options[2] = new Button("Exit", 200 + 2 * 80,new Font("Arial",Font.PLAIN,32),new Font("Arial",Font.BOLD,48),
+		options[2] = new Button("Back", 200 + 2 * 80,new Font("Arial",Font.PLAIN,32),new Font("Arial",Font.BOLD,48),
 				Color.GREEN,Color.WHITE);
 	}
 	
@@ -72,16 +71,16 @@ public class MenuState  implements State
 	private void select(StateManager stateManager) {
 		switch(currentSel) {
 		case 0:
-			System.out.println("play");
-			stateManager.setState("game");
+			System.out.println("dont work");
+			//stateManager.setState("game");
 			break;
 		case 1:
-			System.out.println("Options");
-			stateManager.setState("options");
+			System.out.println("dont work");
 			break;
 		case 2:
-			System.out.println("Exit");
-			Game.INSTANCE.stop();
+			System.out.println("Back");
+			stateManager.setState("menu");
+			//Game.INSTANCE.stop();
 			break;
 		}
 	}
@@ -90,7 +89,7 @@ public class MenuState  implements State
 	{
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
-		Fonts.drawString(g,new Font("Arial",Font.BOLD,72) ,Color.BLUE, Game.TITLE,80);
+		Fonts.drawString(g,new Font("Arial",Font.BOLD,72) ,Color.BLUE, "options",80);
 
 		for(int i = 0;i < options.length;i++)
 		{
@@ -111,7 +110,7 @@ public class MenuState  implements State
 	
 	@Override
 	public String getName() {
-		return "menu";
+		return "options";
 	}
-	
 }
+	
