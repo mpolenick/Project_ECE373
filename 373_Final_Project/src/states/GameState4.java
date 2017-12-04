@@ -21,7 +21,7 @@ public class GameState4 extends GameState implements State{
 	
 	private ArrayList<Entity> entities;
 	private ArrayList<Tile> tiles;
-	private String filename = "background4";
+	private String filename = "background5";
 	@Override
 	public void init() {
 		tiles = new ArrayList<Tile>();
@@ -86,6 +86,13 @@ public void render(Graphics2D g) {
 
 	public void addEntity(Entity entity) {
 		entities.add(entity);
+	}
+	
+	public boolean nextState() {
+		if(entities.get(0).getBounds().x == 1280) {
+			return true;
+		}
+		return false;
 	}
 
 }

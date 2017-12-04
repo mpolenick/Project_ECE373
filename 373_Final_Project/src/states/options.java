@@ -112,5 +112,10 @@ public class options implements State {
 	public String getName() {
 		return "options";
 	}
+	
+	public boolean nextState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
 	

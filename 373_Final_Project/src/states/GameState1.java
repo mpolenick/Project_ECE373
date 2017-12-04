@@ -89,6 +89,13 @@ public class GameState1 extends GameState implements State{
 	public void addEntity(Entity entity) {
 		entities.add(entity);
 	}
+	@Override
+	public boolean nextState() {
+		if(entities.get(0).getBounds().x == 1280) {
+			return true;
+		}
+		return false;
+	}
 
 }
 

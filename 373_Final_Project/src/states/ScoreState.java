@@ -110,4 +110,9 @@ public class ScoreState implements State
 		return "score";
 	}
 	
+	public boolean nextState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 }

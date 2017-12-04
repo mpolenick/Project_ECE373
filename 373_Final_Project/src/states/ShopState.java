@@ -122,4 +122,8 @@ public class ShopState implements State {
 		return "shop";
 	}
 	
+	public boolean nextState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

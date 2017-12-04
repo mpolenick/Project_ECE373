@@ -151,9 +151,9 @@ public class Game extends Canvas implements Runnable {
 			long now = System.nanoTime();
 			unprocessed = unprocessed + (now - lastTime)/nsPerTick;
 			lastTime = now;
-		//	if(stateManager.getState().nextState()) {
-			//	stateManager.nextState();
-		//	}
+			if(stateManager.getState().nextState()) {
+				stateManager.nextState();
+			}
 			
 			if(unprocessed >= 1.0)
 			{

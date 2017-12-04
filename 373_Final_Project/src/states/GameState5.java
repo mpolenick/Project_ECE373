@@ -3,7 +3,11 @@ package states;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 import entities.Entity;
 import entities.Player;
@@ -17,6 +21,7 @@ public class GameState5 extends GameState implements State{
 	
 	private ArrayList<Entity> entities;
 	private ArrayList<Tile> tiles;
+	private String filename = "background6";
 	@Override
 	public void init() {
 		tiles = new ArrayList<Tile>();
@@ -53,16 +58,20 @@ public class GameState5 extends GameState implements State{
 	}
 	@Override
 	public void render(Graphics2D g) {
-		//g.drawImage(img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, observer)
 		
-		g.setColor(Color.GRAY);
-		g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
+		try {
+		g.drawImage(ImageIO.read(new File("./src/images/"+filename +".png")), 0, 0, 1280, 720,null);// ,0, 0, 1280, 720);
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+
 		for (Entity e : entities) {
 			e.render(g);
 		}
 		for (Tile t : tiles) {
 			t.render(g);
 		}
+		
 	}
 
 	@Override
@@ -77,6 +86,13 @@ public class GameState5 extends GameState implements State{
 
 	public void addEntity(Entity entity) {
 		entities.add(entity);
+	}
+	
+	public boolean nextState() {
+		if(entities.get(0).getBounds().x == 1280) {
+			return true;
+		}
+		return false;
 	}
 
 }

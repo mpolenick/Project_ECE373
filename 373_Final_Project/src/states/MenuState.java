@@ -121,4 +121,9 @@ public class MenuState  implements State
 		return "menu";
 	}
 	
+	public boolean nextState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 }

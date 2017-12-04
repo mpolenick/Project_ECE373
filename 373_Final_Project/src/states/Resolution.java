@@ -39,5 +39,10 @@ public class Resolution implements State {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public boolean nextState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

@@ -37,10 +37,18 @@ public class StateManager {
 	public void tick() {
 		curState.tick(this);
 	}
+	
 	public void render(Graphics2D g) {
 		curState.render(g);
 	}
+	
 	public State getState() {
 		return curState;
+	}
+	
+	public void nextState() {
+		String[] barf = curState.getName().split("game");
+		Integer turkey = Integer.parseInt(barf[1]) + 1 ;
+		curState = map.get( "GAME" + turkey.toString().toUpperCase());   // name.toUpperCase())
 	}
 }
