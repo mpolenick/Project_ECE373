@@ -21,7 +21,7 @@ public class GameState3 extends GameState implements State{
 	
 	private ArrayList<Entity> entities;
 	private ArrayList<Tile> tiles;
-	private String filename = "background4";
+	private String filename = "background3";
 	@Override
 	public void init() {
 		tiles = new ArrayList<Tile>();

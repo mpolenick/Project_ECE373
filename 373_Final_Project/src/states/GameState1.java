@@ -22,8 +22,12 @@ public class GameState1 extends GameState implements State{
 	private String filename = "background3";
 	private ArrayList<Entity> entities;
 	private ArrayList<Tile> tiles;
+	private Integer Count;
+	private Integer Count2;
 	@Override
 	public void init() {
+		Count = 0;
+		Count2 = 0;
 		tiles = new ArrayList<Tile>();
 		entities = new ArrayList<Entity>();
 		new Player(new Sprite("octagonred"), 100, 100, this);
@@ -42,13 +46,13 @@ public class GameState1 extends GameState implements State{
 		tiles.add(new Tile(100 + 64 *5, 720 - 64*1 , new Sprite(new SpriteSheet(new Texture("hoverbox"), 64), 1, 1)));
 		
 		tiles.add(new Tile(100 + 64 *15, 720 - 64*2 , new Sprite(new SpriteSheet(new Texture("hoverbox"), 64), 1, 1)));
-		tiles.add(new Tile(100 + 64 *15, 720 - 64*3 , new Sprite(new SpriteSheet(new Texture("hoverbox"), 64), 1, 1)));
+		tiles.add(new Tile(100 + 64 *15, 720 - 64*3 , new Sprite(new SpriteSheet(new Texture("ratmanwithsign2"), 64), 1, 1)));
 		//tiles.add(new Tile(400, 50, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
 		//tiles.add(new Tile(300, 300, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
 		//tiles.add(new Tile(640 - 64, 300, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
 		 
 		for (int i =0; i < 20;i++) {
-			tiles.add(new Tile(x,y,new Sprite(new SpriteSheet(new Texture("terrain"),64),1,1)));
+			tiles.add(new Tile(x,y,new Sprite(new SpriteSheet(new Texture("concrete2"),64),1,1)));
 			x+=64;
 		}
 	}
@@ -70,8 +74,26 @@ public class GameState1 extends GameState implements State{
 	@Override
 	public void render(Graphics2D g) {
 		
-		try {
-		g.drawImage(ImageIO.read(new File("./src/images/"+filename +".png")), 0, 0, 1280, 720,null);// ,0, 0, 1280, 720);
+		try {	
+			
+			//g.drawImage(ImageIO.read(new File("./src/images/"+filename+".png")), 0, 0, 1280, 720,null);
+			g.drawImage(ImageIO.read(new File("./src/images/clear_sky.png")), 0, 0, 1280, 720,null);
+			g.drawImage(ImageIO.read(new File("./src/images/cloud1.png")), Count, 96, 700, 350,null);
+			g.drawImage(ImageIO.read(new File("./src/images/cloud2.png")), Count2, 400, 700, 350,null);
+			if (Count < 1000) {
+			Count++;
+			}
+			else{
+				Count = 0;
+			}
+			if(Count % 2 == 1) {
+				if (Count2 < 1000) {
+				Count2++;
+				}
+				else {
+					Count2 =0;
+				}
+			}
 		}catch(IOException e){
 			e.printStackTrace();
 		}

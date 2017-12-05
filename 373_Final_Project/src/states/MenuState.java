@@ -25,19 +25,35 @@ public class MenuState  implements State
 {
 	private Button[] options;
 	private int currentSel; //either 0,1,2,3
+	private Integer Count;
+	private Integer Count2;
+	private Integer k;
+	private Font customFont;
 	
 	@Override
 	public void init()
-	{
+	{	Count = 0;
+		Count2 = 0;
+		k = 0;
+		try {
+		    customFont = Font.createFont(Font.TRUETYPE_FONT, new File("./src/font/8-BIT WONDER.ttf")).deriveFont(32f);
+		 
+		} catch (IOException e) {
+		    e.printStackTrace();
+		} catch(FontFormatException e) {
+		    e.printStackTrace();
+		}
+		
 		options = new Button[4];
-		options[0] = new Button("Play", 200 + 0 * 80,new Font("Arial",Font.PLAIN,32),new Font("Arial",Font.BOLD,48),
-				Color.GREEN,Color.WHITE);
-		options[1] = new Button("Shop", 200 + 1 * 80,new Font("Arial",Font.PLAIN,32),new Font("Arial",Font.BOLD,48),
-				Color.GREEN,Color.WHITE);
-		options[2] = new Button("Options", 200 + 2 * 80,new Font("Arial",Font.PLAIN,32),new Font("Arial",Font.BOLD,48),
-				Color.GREEN,Color.WHITE);
-		options[3] = new Button("Exit", 200 + 3 * 80,new Font("Arial",Font.PLAIN,32),new Font("Arial",Font.BOLD,48),
-				Color.GREEN,Color.WHITE);
+		options[0] = new Button("Play", 200 + 0 * 80,customFont,customFont.deriveFont(48f),
+				Color.GREEN,Color.YELLOW);
+		options[1] = new Button("Shop", 200 + 1 * 80,customFont,customFont.deriveFont(48f),
+				Color.GREEN,Color.YELLOW);
+		options[2] = new Button("Options", 200 + 2 * 80,customFont,customFont.deriveFont(48f),
+				Color.GREEN,Color.YELLOW);
+		options[3] = new Button("Exit", 200 + 3 * 80,customFont,customFont.deriveFont(48f),
+				Color.GREEN,Color.YELLOW);
+		
 	}
 	
 	@Override
@@ -103,11 +119,30 @@ public class MenuState  implements State
 	{	g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
-	    try {
-		g.drawImage(ImageIO.read(new File("./src/images/mainmenu.jpg")), 0, 0, 1280, 720,null);// ,0, 0, 1280, 720);
+			try {	
+
+			g.drawImage(ImageIO.read(new File("./src/images/clear_sky.png")), 0, 0, 1280, 720,null);
+			g.drawImage(ImageIO.read(new File("./src/images/cloud1.png")), Count - 360, 96, 700, 350,null);
+			g.drawImage(ImageIO.read(new File("./src/images/cloud2.png")), Count2 + 6, 300, 700, 350,null);
+			if (Count < 1000) {
+			Count++;
+			}
+			else{
+				Count = 0;
+			}
+			if(Count % 2 == 1) {
+				if (Count2 < 1000) {
+				Count2++;
+				}
+				else {
+					Count2 =0;
+				}
+			}
+			
+			//System.out.println(filename+k.toString());
 		}catch(IOException e){
 			e.printStackTrace();
-	}
+		}
 
 		try {
 		    Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("./src/font/8-BIT WONDER.ttf")).deriveFont(60f);
