@@ -48,7 +48,11 @@ public class StateManager {
 	
 	public void nextState() {
 		String[] barf = curState.getName().split("game");
+		if(barf[1].equals("5")) {
+			curState = map.get( "score".toUpperCase());
+		}else{
 		Integer turkey = Integer.parseInt(barf[1]) + 1 ;
 		curState = map.get( "GAME" + turkey.toString().toUpperCase());   // name.toUpperCase())
+		}
 	}
 }

@@ -72,7 +72,7 @@ public class ScoreState implements State
 		switch(currentSel) {
 		case 0:
 			System.out.println("play");
-			stateManager.setState("game");
+			stateManager.setState("game1");
 			break;
 		case 1:
 			System.out.println("Exit");

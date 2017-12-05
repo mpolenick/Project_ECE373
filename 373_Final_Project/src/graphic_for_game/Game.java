@@ -17,6 +17,7 @@ import states.GameState1;
 import states.GameState2;
 import states.GameState3;
 import states.GameState4;
+import states.GameState5;
 import states.MenuState;
 import states.ScoreState;
 import states.ShopState;
@@ -53,6 +54,7 @@ public class Game extends Canvas implements Runnable {
 		stateManager.addState(new GameState2());
 		stateManager.addState(new GameState3());
 		stateManager.addState(new GameState4());
+		stateManager.addState(new GameState5());
 		stateManager.addState(new ScoreState());
 		stateManager.addState(new ShopState());
 		//stateManager.addState(new GameState5());

@@ -7,6 +7,10 @@ import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import graphic_for_game.Game;
 import graphic_for_game.ShapeRunner;
@@ -85,10 +89,15 @@ public class ShopState implements State {
 	}
 	
 	public void render(Graphics2D g)
-	{
+	{	
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 0, Game.WIDTH,Game.HEIGHT);
+	//	try {
+	//		g.drawImage(ImageIO.read(new File("./src/images/storepic.png")), 0, 0, 1280, 720,null);// ,0, 0, 1280, 720);
+	//		}catch(IOException e){
+	//			e.printStackTrace();
+	//		}
 		Fonts.drawString(g,new Font("Arial",Font.BOLD,72) ,Color.BLUE, "Shop",80);
 		
 		
